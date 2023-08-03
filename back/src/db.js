@@ -28,6 +28,25 @@ function registrar(datos, callback) {
   });
 }
 
+// Definimos la función 'registrar' que insertará los datos recibidos en la tabla 'datosregistro'
+function registrarA(datos, callback) {
+  // Extraemos los datos individuales del objeto 'datos' usando destructuring
+  const { Nombre, Marca, Fecha, Pais, Departamento } = datos;
+
+  // Creamos la consulta SQL con marcadores de posición ('?') para los valores a insertar
+  const sql = `INSERT INTO registrorepuestos (Nombre, Marca, Fecha, Pais, Departamento) VALUES (?, ?, ?, ?, ?)`;
+
+  // Ejecutamos la consulta SQL, pasando los valores reales en un arreglo como segundo argumento
+  connection.query(sql, [Nombre, Marca, Fecha, Pais, Departamento], (error, results, fields) => {
+    // Si hay un error en la consulta, llamamos a la función 'callback' con el error
+    if (error) return callback(error);
+    
+    // Si la consulta se ejecutó exitosamente, llamamos a la función 'callback' con los resultados
+    // y pasamos 'null' como primer argumento para indicar que no hay error.
+    callback(null, results);
+  });
+}
+
 // Establecemos la conexión a la base de datos
 connection.connect((err) => {
   // Si hay un error en la conexión, lanzamos una excepción con el mensaje de error
@@ -39,5 +58,6 @@ connection.connect((err) => {
 
 // Exportamos la función 'registrar' para que pueda ser utilizada en otros archivos
 module.exports = {
-  registrar: registrar
+  registrar: registrar,
+  registrarA: registrarA
 };

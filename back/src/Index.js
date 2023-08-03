@@ -32,6 +32,30 @@ app.post("/register", (req, res) => {
   console.log("Datos recibidos:", req.body);
 });
 
+
+
+// Definir una ruta POST para /register
+app.post("/registerA", (req, res) => {
+  // Extraer los datos del cuerpo de la solicitud usando destructuring
+  const { Nombre, Marca, Fecha, Pais, Departamento } = req.body;
+
+  // Llamar a la función db.registrar() para insertar los datos en la base de datos
+  db.registrarA({ Nombre, Marca, Fecha, Pais, Departamento }, (error, results) => {
+    // Si hay un error al insertar los datos, enviar una respuesta JSON con success: false
+    if (error) {
+      console.error("Error al insertar datos en la base de datos:", error);
+      return res.json({ success: false });
+    }
+
+    // Si la inserción es exitosa, enviar una respuesta JSON con success: true
+    console.log("Datos registrados correctamente:", results);
+    res.json({ success: true });
+  });
+
+  // Mostrar información en la consola sobre los datos recibidos en la solicitud
+  console.log("Datos recibidos:", req.body);
+});
+
 // Escuchar en el puerto 3001
 app.listen(3001, () => {
   console.log("Corriendo en el puerto 3001");

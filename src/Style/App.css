@@ -1,0 +1,34 @@
+.blue-background {
+    background-color: rgb(114, 110, 110);
+    /* Este es un tono de azul claro */
+}
+
+.fondo {
+    background-image: url("../imagenes/48578.jpg");
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+.fondoAUTOS{
+    background-image: url("../imagenes/tienda-repuestos-carteles-retro-servicio-automoviles_8071-25629.avif");
+    background-attachment: fixed;
+    background-size: cover;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-repeat: no-repeat;
+    background-position: center;
+    z-index: -1;
+}
+
+/* Estilo para ajustar el margen entre el formulario y la tabla */
+.custom-margin {
+    margin-top: 10px;
+}

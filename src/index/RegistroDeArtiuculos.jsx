@@ -7,16 +7,16 @@ import axios from "axios";
 function App() {
   const [formData, setFormData] = useState({
     Nombre: "",
-    Apellido: "",
-    Correo: "",
-    Telefono: "",
+    Marca: "",
+    Fecha: "",
     Pais: "",
+    Departamento: "",
   });
 
   const handleSubmit = (event) => {
     event.preventDefault();
     // Aquí puedes realizar el envío de los datos al servidor utilizando "formData"
-    axios.post("http://localhost:3001/register", formData).then((resp) => {
+    axios.post("http://localhost:3001/registerA", formData).then((resp) => {
       console.log(resp.data);
 
       if (resp.data.success) {
@@ -32,7 +32,7 @@ function App() {
   };
 
   return (
-    <div className="App fondo ">
+    <div className="App fondoAUTOS ">
       <div class="container">
         <div class="row">
           <div class="col-md-6 ">
@@ -42,7 +42,7 @@ function App() {
                   <div class="card custom-margin ">
                     <div class="card-header ">
                       <center>
-                        <h1>Registro De Personas</h1>
+                        <h1>Registro De Articulos</h1>
                       </center>
                     </div>
                     <div class="card-body blue-background ">
@@ -64,46 +64,46 @@ function App() {
                               className="form-control"
                             />
                             <br />
-                            <label htmlFor="Apellido">Apellido</label>
+                            <label htmlFor="Marca">Marca</label>
                             <br />
                             <input
                               type="text"
-                              id="Apellido"
-                              name="Apellido"
-                              value={formData.Apellido}
+                              id="Marca"
+                              name="Marca"
+                              value={formData.Marca}
                               onChange={handleChange}
                               className="form-control"
                             />
                             <br />
-                            <label htmlFor="Correo">Correo: </label>
+                            <label htmlFor="Fecha">Fecha </label>
                             <br />
                             <input
-                              type="text"
-                              name="Correo"
-                              id="Correo"
-                              value={formData.Correo}
+                              type="datetime-local"
+                              name="Fecha"
+                              id="Fecha"
+                              value={formData.Fecha}
                               onChange={handleChange}
                               className="form-control"
                             />
                             <br />
-                            <label htmlFor="Telefono">Telefono: </label>
-                            <br />
-                            <input
-                              type="text"
-                              name="Telefono"
-                              id="Telefono"
-                              value={formData.Telefono}
-                              onChange={handleChange}
-                              className="form-control"
-                            />
-                            <br />
-                            <label htmlFor="Pais">Pais :</label>
+                            <label htmlFor="Pais">Pais: </label>
                             <br />
                             <input
                               type="text"
                               name="Pais"
                               id="Pais"
                               value={formData.Pais}
+                              onChange={handleChange}
+                              className="form-control"
+                            />
+                            <br />
+                            <label htmlFor="Departamento">Departamento :</label>
+                            <br />
+                            <input
+                              type="text"
+                              name="Departamento"
+                              id="Departamento"
+                              value={formData.Departamento}
                               onChange={handleChange}
                               className="form-control"
                             />
