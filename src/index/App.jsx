@@ -112,7 +112,7 @@ function App() {
                               Enviar
                             </button>
                             <button className="btn btn-success">
-                              <Link to="/" className="nav-link">
+                              <Link to="/Inicio" className="nav-link">
                                 Volver
                               </Link>
                             </button>

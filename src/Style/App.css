@@ -27,7 +27,19 @@
     background-position: center;
     z-index: -1;
 }
+.fondo3{
+    background-image: url("../imagenes/tres-mejores-motores-historia-ferrari-2592005.webp");
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* Ajusta la altura según tus necesidades */
+}
 
+.fondo4{
+    background-image: url("../imagenes/descarga.jpeg");
+    background-size: cover;
+    background-position: center;
+    height: 300px; /* Ajusta la altura según tus necesidades */
+}
 /* Estilo para ajustar el margen entre el formulario y la tabla */
 .custom-margin {
     margin-top: 10px;

@@ -47,6 +47,23 @@ function registrarA(datos, callback) {
   });
 }
 
+function Consultar(callback) {
+  // Creamos la consulta SQL para seleccionar todos los registros de la tabla 'registrorepuestos'
+  const sql = `SELECT * FROM registrorepuestos`;
+
+  // Ejecutamos la consulta en la base de datos
+  connection.query(sql, (error, results) => {
+    if (error) {
+      // Si hay un error en la consulta, llamamos al callback con el error
+      return callback(error, null);
+    }
+
+    // Si la consulta se ejecutó exitosamente, llamamos al callback con los resultados
+    callback(null, results);
+  });
+  
+}
+
 // Establecemos la conexión a la base de datos
 connection.connect((err) => {
   // Si hay un error en la conexión, lanzamos una excepción con el mensaje de error
@@ -59,5 +76,6 @@ connection.connect((err) => {
 // Exportamos la función 'registrar' para que pueda ser utilizada en otros archivos
 module.exports = {
   registrar: registrar,
-  registrarA: registrarA
+  registrarA: registrarA,
+  Consultar:Consultar
 };
